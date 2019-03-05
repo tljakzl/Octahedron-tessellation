@@ -1,0 +1,38 @@
+#version 330 core
+
+layout (location = 0) in vec3 position;
+uniform mat4 model;
+uniform mat4 view;
+uniform mat4 projection;
+uniform float length;
+out vec3 ourColor;
+
+void main()
+{
+    float dx;
+	float dy;
+	float dz;
+
+	 float dxx;
+	 float dyy;
+	 float dzz;
+	 float sin_1 = (sin(length*0.3))*(sin(length*0.3));
+	 float sin_2 = abs(sin(length + 3.1415/2));
+    float lengthh = 1.4f;
+
+	    dx = position.x - 0.0f;
+		dy = position.y  - 0.0f;
+		dz = position.z - 0.0f;
+
+		float distance = (sqrt(pow(dx, 2.0) + pow(dy, 2.0) + pow(dz, 2.0)));
+	
+		dxx =(dx * lengthh / distance) - dx;
+		dyy =(dy * lengthh / distance) - dy;
+		dzz =(dz * lengthh / distance) - dz;
+		
+		//rgb(44%, 75%, 99%);
+		ourColor = vec3(dx + 0.44f,dy + 0.75f,dz + 0.99f);
+
+
+    gl_Position = projection  * view * model * vec4( (dx + sin_1*dxx)*cos(length*0.3) + (dz+dzz*sin_1)*sin(length*0.3) ,dy+dyy*sin_1,-sin(length*0.3)*(dx + sin_1*dxx) + (dz+dzz*sin_1)*cos(length*0.3) , 1.0f);
+}
