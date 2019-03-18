@@ -6,6 +6,7 @@
 
 
 
+
 	//  онструктор считывает и собирает шейдер
 	Shader::Shader(const GLchar* vertexPath, const GLchar* fragmentPath)
 	{

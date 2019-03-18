@@ -157,6 +157,7 @@
   <ItemGroup>
     <ClInclude Include="buffer.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="main.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Shader.h" />
   </ItemGroup>
